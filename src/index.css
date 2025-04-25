@@ -1,0 +1,112 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 178 20% 20%; /* Changed to dark green */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 60 100% 91%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 44 32% 71%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 5 74% 48%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 178 20% 20%; /* Changed to match primary */
+
+    --radius: 0.6rem;
+  }
+ 
+  * {
+    @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-verdana;
+    @apply tracking-tight;
+  }
+  
+  *:focus-visible {
+    @apply outline-none ring-2 ring-scienceBlue/70 ring-offset-2 ring-offset-white/50 transition-all duration-200;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-xl bg-white/80 border border-white/50 shadow-glass rounded-2xl;
+  }
+  
+  .science-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-scienceBlue bg-white rounded-md shadow-md transition-all duration-300;
+    @apply hover:bg-scienceBlue hover:text-white hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scienceBlue/70 focus-visible:ring-offset-2;
+  }
+  
+  .section-header {
+    @apply font-bold text-4xl md:text-5xl lg:text-6xl mb-3 mt-10 text-scienceBlue;
+  }
+  
+  .section-subheader {
+    @apply text-lg md:text-xl lg:text-2xl text-scienceBlue/80 mb-10 max-w-3xl;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in motion-reduce:animate-none;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-foreground/80 hover:text-scienceBlue transition-colors duration-300;
+    @apply after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-scienceBlue 
+           after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .nav-link-active {
+    @apply text-scienceBlue after:w-full;
+  }
+}
+
+/* Animations for page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
