@@ -32,6 +32,9 @@ jobs:
       - name: Build with Vite
         run: npm run build
 
+      - name: Copiar index.html a 404.html  # 👈 Aquí está la clave
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
