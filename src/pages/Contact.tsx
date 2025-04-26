@@ -8,6 +8,7 @@ import { MapPin, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';  // falta activar esto, hay que hacer la cuenta e incluir aqui la info, ya hecho cuenta y añadido variables
+import ReCAPTCHA from "react-google-recaptcha"; // 👉 NUEVO
 
 const socialNetworks = [
   { 
@@ -45,10 +46,15 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null); // 👉 NUEVO
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCaptchaChange = (value: string | null) => { // 👉 NUEVO
+    setCaptchaValue(value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -84,6 +90,7 @@ const Contact = () => {
         description: "Gracias por contactar. Responderemos a la brevedad posible.",
       });
       setFormData({ name: "", email: "", message: "" });
+      setCaptchaValue(null); // 👉 limpiamos captcha al enviar
     } catch (error) {
       console.error('Error al enviar el email:', error);
       toast({
@@ -158,7 +165,17 @@ const Contact = () => {
                     required 
                   />
                 </div>
-                <Button type="submit" disabled={isSubmitting} className="w-full">
+
+                {/* 👇 AÑADIMOS CAPTCHA AQUÍ */}
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} // tu Site Key
+                    //sitekey="6LdgTyUrAAAAAI2ZJQ3i2ccuZ6MYzAg2fh0ZZd8Z"
+                    onChange={handleCaptchaChange}
+                  />
+                </div>
+
+                <Button type="submit" disabled={isSubmitting || !captchaValue} className="w-full">
                   {isSubmitting ? "Enviando..." : (
                     <>
                       Enviar mensaje <Send size={16} className="ml-2" />

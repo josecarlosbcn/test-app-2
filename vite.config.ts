@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "::",
       port: 8080,
+      historyApiFallback: true, // 👈 Esto es la clave
     },
     plugins: [
       react(),
@@ -32,7 +33,8 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_EMAILJS_TEMPLATE_ID': JSON.stringify(env.VITE_EMAILJS_TEMPLATE_ID),
       'import.meta.env.VITE_EMAILJS_PUBLIC_KEY': JSON.stringify(env.VITE_EMAILJS_PUBLIC_KEY),
       'import.meta.env.VITE_EMAILJS_TEMPLATE_ID_REPLY': JSON.stringify(env.VITE_EMAILJS_TEMPLATE_ID_REPLY),
+      'import.meta.env.VITE_RECAPTCHA_SITE_KEY': JSON.stringify(env.VITE_RECAPTCHA_SITE_KEY),
     },
-    base: "/science-hub-portal/", // añadido para deploy - video YouTube
+    base: mode === 'development' ? '/' : '/science-hub-portal/', // añadido para deploy - video YouTube
   };
 });
