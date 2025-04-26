@@ -4,34 +4,34 @@ import { motion } from "framer-motion";
 const LogoSection = () => {
   const topRowLogos = [
     {
-      src: "/images/logos/generacion-d.webp",
+      src: `${import.meta.env.BASE_URL}images/logos/generacion-d.webp`,
       alt: "Partner Logo 1",
     },
     {
-      src: "/images/logos/CSIC.jpg",
+      src: `${import.meta.env.BASE_URL}images/logos/CSIC.jpg`,
       alt: "Partner Logo 2",
     },
     {
-      src: "/images/logos/Momentum.png",
+      src: `${import.meta.env.BASE_URL}images/logos/Momentum.png`,
       alt: "Partner Logo 3",
     },
   ];
 
   const bottomRowLogos = [
     {
-      src: "/images/logos/NextGenerationEU.jpg",
+      src: `${import.meta.env.BASE_URL}images/logos/NextGenerationEU.jpg`,
       alt: "Partner Logo 4",
     },
     {
-      src: "/images/logos/GOBIERNO.jpg",
+      src: `${import.meta.env.BASE_URL}images/logos/GOBIERNO.jpg`,
       alt: "Partner Logo 5",
     },
     {
-      src: "/images/logos/redes.jpg",
+      src: `${import.meta.env.BASE_URL}images/logos/redes.jpg`,
       alt: "Partner Logo 6",
     },
     {
-      src: "/images/logos/PRTR.png",
+      src: `${import.meta.env.BASE_URL}images/logos/PRTR.png`,
       alt: "Partner Logo 7",
     },
   ];

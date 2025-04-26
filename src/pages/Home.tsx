@@ -3,7 +3,7 @@ import { ArrowRight, Beaker, Brain, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LogoSection from '@/components/LogoSection';
-import miLogo from "/images/IMG_8709_v2.jpeg"; // añadido por IBS
+//import miLogo from "/images/IMG_8709_v2.jpeg"; // añadido por IBS
 
 const Home = () => {
   return (
@@ -12,7 +12,8 @@ const Home = () => {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <img 
-          src={miLogo}
+          //src={miLogo}
+          src={`${import.meta.env.BASE_URL}images/IMG_8709_v2.jpeg`}
           alt="Mi foto principal"
           className="absolute inset-0 w-full h-full object-cover" 
           

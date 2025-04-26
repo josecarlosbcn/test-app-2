@@ -133,7 +133,7 @@ const Results = () => {
           <CardContent>
             <div className="space-y-4">
               {[
-                { title: "Presentación del Proyecto en T4A", date: "Enero 2025", type: "PDF", size: "2.4 MB", path: "/docs/20250123_Ppt_ReuGrupo.pdf" },
+                { title: "Presentación del Proyecto en T4A", date: "Enero 2025", type: "PDF", size: "2.4 MB", path: `${import.meta.env.BASE_URL}docs/20250123_Ppt_ReuGrupo.pdf` },
                 //{ title: "Artículo: Nuevos enfoques metodológicos", date: "Febrero 2024", type: "PDF", size: "1.8 MB", path: "/docs/nuevos-enfoques-metodologicos.pdf" },
                 //{ title: "Datos experimentales serie A-234", date: "Enero 2024", type: "XLSX", size: "5.2 MB", path: "/docs/datos-experimentales-a234.xlsx" },
                 //{ title: "Publicación en Revista de Ciencias Aplicadas", date: "Diciembre 2023", type: "PDF", size: "3.5 MB", path: "/docs/publicacion-revista-ciencias.pdf" },
