@@ -35,6 +35,6 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_EMAILJS_TEMPLATE_ID_REPLY': JSON.stringify(env.VITE_EMAILJS_TEMPLATE_ID_REPLY),
       'import.meta.env.VITE_RECAPTCHA_SITE_KEY': JSON.stringify(env.VITE_RECAPTCHA_SITE_KEY),
     },
-    base: mode === 'development' ? '/' : '/science-hub-portal/', // añadido para deploy - video YouTube
+    base: mode === 'development' ? '/' : '/test-app-2/', // añadido para deploy - video YouTube
   };
 });
