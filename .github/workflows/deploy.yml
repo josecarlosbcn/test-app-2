@@ -17,6 +17,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env: # 👈 Aquí defines variables que estarán disponibles durante el build
+      VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
+      VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+      VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+      VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+      VITE_EMAILJS_TEMPLATE_ID_REPLY: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_REPLY }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
